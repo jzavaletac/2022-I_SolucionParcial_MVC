@@ -6,7 +6,8 @@
 package vista;
 
 import modelo.*;
-import controlador.ControladorPrincipal;
+import datos.*;
+import controlador.*;
 
 /**
  *
@@ -16,6 +17,9 @@ public class App {
     public static void main(String args[]){
         System.out.println("Inicio del programa");
         //Persona p = new Persona("0102030405", "Jorge Zavaleta");
+        
+        Repositorio.usuarios.agregar(new Usuario("admin","abc123"));
+        Repositorio.usuarios.agregar(new Usuario("supervisor","abc123"));
         
         PersonaArreglo personas = new PersonaArreglo(20);
         //personas.agregar(p);
@@ -30,7 +34,10 @@ public class App {
         System.out.println("Empleados");
         System.out.println(personas.getEmpleados());
         
-        ControladorPrincipal controlador = new ControladorPrincipal( personas, new frmPrincipal() );
+        //ControladorPrincipal controlador = new ControladorPrincipal( personas, new frmPrincipal() );
+        //controlador.iniciar();
+        
+        ControladorIngreso controlador = new ControladorIngreso( Repositorio.usuarios, new frmIngreso() );
         controlador.iniciar();
     }
 }

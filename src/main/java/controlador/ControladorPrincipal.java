@@ -38,6 +38,8 @@ public class ControladorPrincipal {
                 }
             }
         );
+        
+        //this.vista.btn
 
     } 
     
